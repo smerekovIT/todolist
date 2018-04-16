@@ -1,0 +1,7 @@
+<ul>
+  <li *ngFor='let game of games$ | async'>{{game.title}} 
+
+    <span><button (click)='onDelete(game.id)'>Delete</button></span></li>
+
+</ul>
+<button (click)='deleteAll()'>Delete all</button>

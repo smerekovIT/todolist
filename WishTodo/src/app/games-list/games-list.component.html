@@ -1,0 +1,7 @@
+<div *ngFor='let game of games$ | async'>
+  <h2>{{game.title}}</h2>
+  <h4>{{game.price}}</h4>
+  <img  [src]='game.cover'>
+  <button (click)='addGame(game)'>add</button>
+</div>
+
