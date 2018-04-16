@@ -24,6 +24,7 @@ games$: Observable<Games[]>
     this.games$ = this.gamesService.getListGames()
   }
   addGame(game){
+    
     this.gamesService.AddGames(game).subscribe(data => console.log(data))
   }
 

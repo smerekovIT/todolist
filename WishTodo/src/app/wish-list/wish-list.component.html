@@ -1,7 +1,8 @@
 <ul>
   <li *ngFor='let game of games$ | async'>{{game.title}} 
 
-    <span><button (click)='onDelete(game.id)'>Delete</button></span></li>
+    <span><button (click)='onDelete(game)'>Delete</button></span></li>
 
 </ul>
+<p>{{sum}}</p>
 <button (click)='deleteAll()'>Delete all</button>

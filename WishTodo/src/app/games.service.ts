@@ -19,24 +19,32 @@ export class GamesService {
   AddGames(newGame):Observable<Games> {
     this.myGames = [...this.myGames, newGame]
    
-   // localStorage.setItem('game', JSON.stringify(newGame))
+    
+    this.saveTodoList()
     
     return of(newGame)
   }
   getListMyGame() {
-    //let item = localStorage.getItem('game')
-   // let a =  JSON.parse(item)
-    //this.myGames.push(a)
+    let item = JSON.parse(localStorage.getItem('game'))
+    console.log(item)
+    this.myGames = item
     
     
     return of(this.myGames)
   }
   delete(id):any{
-  //  localStorage.removeItem
-  return of(this.myGames = this.myGames.filter(c => c.id !== id))
+    this.myGames = this.myGames.filter(c => c.id !== id)
+    this.saveTodoList()
+    return of(this.myGames)
     
   }
   deleteAll(){
+    localStorage.removeItem('game')
    return of( this.myGames = [])
+  }
+
+  saveTodoList() {
+    return localStorage.setItem('game', JSON.stringify(this.myGames))
+
   }
 }
